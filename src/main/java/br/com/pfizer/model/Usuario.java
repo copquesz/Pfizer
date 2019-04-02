@@ -60,5 +60,9 @@ public class Usuario implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "endereco_id")
 	Endereco endereco;
+	
+	public Usuario() {
+		this.dataCadastro = new Date();
+	}
 
 }

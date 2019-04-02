@@ -74,4 +74,8 @@ public class Associacao implements Serializable{
 	
 	@OneToMany(mappedBy = "associacao", fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<Projeto> projetos;
+	
+	public Associacao() {
+		this.dataCadastro = new Date();
+	}
 }
