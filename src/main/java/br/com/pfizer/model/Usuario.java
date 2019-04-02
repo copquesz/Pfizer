@@ -36,27 +36,27 @@ public class Usuario implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCadastro;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date ultimoAcesso;
-	
+
 	@Temporal(TemporalType.DATE)
-	private Date dataNascimento;	
+	private Date dataNascimento;
 
 	private String email;
 
 	private String senha;
 
 	private String telefone;
-	
+
 	private String cpf;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	private Sexo sexo;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	private TipoUsuario tipo;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "endereco_id")
 	Endereco endereco;
