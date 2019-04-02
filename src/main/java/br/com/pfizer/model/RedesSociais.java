@@ -30,11 +30,11 @@ public class RedesSociais implements Serializable {
 	@Column(columnDefinition = "TEXT")
 	private String facebook;
 
-	private String seguidoresFacebook;
+	private Integer seguidoresFacebook;
 
 	@Column(columnDefinition = "TEXT")
 	private String instagram;
 	
-	private String seguidoresInstagram;
+	private Integer seguidoresInstagram;
 
 }
