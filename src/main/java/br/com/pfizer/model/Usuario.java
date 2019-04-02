@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -17,6 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.pfizer.enumerated.Sexo;
 import br.com.pfizer.enumerated.TipoUsuario;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +32,6 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -42,7 +41,7 @@ public class Usuario implements Serializable {
 	private Date ultimoAcesso;
 	
 	@Temporal(TemporalType.DATE)
-	private Date dataNascimento;
+	private Date dataNascimento;	
 
 	private String email;
 
@@ -52,10 +51,11 @@ public class Usuario implements Serializable {
 	
 	private String cpf;
 	
-	private String formacao;
+	@Enumerated(EnumType.ORDINAL)
+	private Sexo sexo;
 	
 	@Enumerated(EnumType.ORDINAL)
-	TipoUsuario tipo;
+	private TipoUsuario tipo;
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "endereco_id")
